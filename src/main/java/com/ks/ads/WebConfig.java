@@ -16,7 +16,7 @@ public class WebConfig {
                 registry.addMapping("/**")
                         .allowedOrigins("http://localhost:5173","https://bucolic-lolly-3c2670.netlify.app")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*") // This allows all headers
+                        .allowedHeaders("*") 
                         .allowCredentials(true);
             }
         };
