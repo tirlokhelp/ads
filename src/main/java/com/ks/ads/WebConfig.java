@@ -14,7 +14,7 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:5173","https://bucolic-lolly-3c2670.netlify.app","https://www.krishisathi.live")
+                        .allowedOrigins("http://localhost:5173","https://bucolic-lolly-3c2670.netlify.app","https://www.krishisathi.live/",,"https://krishisathi.live",,"https://www.krishisathi.live")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*") 
                         .allowCredentials(true);
