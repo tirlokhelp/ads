@@ -45,13 +45,12 @@ public class ImageController {
     }
     
     @GetMapping("/highest-id")
-	public ResponseEntity<byte[]> getImageWithHighestId() {
-		Optional<ImageEntity> imageEntity = imageService.getImageWithHighestId();
-		if (imageEntity.isPresent()) {
-			return ResponseEntity.ok().header("Content-Type", imageEntity.get().getFileType())
-					.body(imageEntity.get().getData());
-		}
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+	public ResponseEntity<ImageEntity> getImageWithHighestId() {
+    	Optional<ImageEntity> imageEntity = imageService.getImageWithHighestId();
+	    System.out.println("Image ID: " + imageEntity.get().getFileName());
+        System.out.println("Image URL: " + imageEntity.get().getFileUrl());
+	    return imageEntity.map(ResponseEntity::ok)
+	                      .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
 	}
 	@GetMapping("/highest")
 	public ResponseEntity<ImageEntity> getImageWithHighest() {
